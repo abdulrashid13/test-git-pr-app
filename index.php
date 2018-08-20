@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
-define('BASEPATH','/opt/bitnami/apps/mfa-api/MFA-API-WEB-INF');
+
 include(BASEPATH ."/include/config.php");
 include(BASEPATH ."/include/functions.inc.php");
 include(CODEPATH."/logger.class.php");
@@ -55,40 +55,7 @@ $TEMPLATE->num 		= $num;
 
 switch($do)
 {
-	case "sms_one_way_otp":
-	{
-		
-		include_once(CODEPATH."/".$do."Action.php");
-		$tmp_class_name = $do."Action";
-		$tmp_obj_controller = new $tmp_class_name();	
-		switch($_SERVER['REQUEST_METHOD'])
-		{
-			case 'POST': $res = $tmp_obj_controller->execute_post();  break;
-		}			
-		break;
-	}
-	case "standard":
-	{
-		include_once(CODEPATH."/".$do."Action.php");
-		$tmp_class_name = $do."Action";
-		$tmp_obj_controller = new $tmp_class_name();
-		switch($_SERVER['REQUEST_METHOD'])
-		{
-			case 'POST': $res = $tmp_obj_controller->execute_post();  break;
-		}						
-		break;
-	}
-	case "get_user_otp":
-	{
-		include_once(CODEPATH."/".$do."Action.php");
-		$tmp_class_name = $do."Action";
-		$tmp_obj_controller = new $tmp_class_name();
-		switch($_SERVER['REQUEST_METHOD'])
-		{
-			case 'POST': $res = $tmp_obj_controller->execute_post();  break;
-		}						
-		break;
-	}	
+	
 	
 }
 
